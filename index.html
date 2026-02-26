@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Astra Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img src="assets/avatar.jpg" alt="AstraClaw avatar" class="brand-avatar" />
+        <h1>Astra Dashboard</h1>
+      </div>
+      <div class="topbar-actions">
+        <div class="runtime-meta" id="runtime-meta">OpenClaw v2026.2.24 · model: gpt-5.3-codex</div>
+        <div class="action-row">
+          <button id="add-task-btn" class="add-btn" type="button">Add</button>
+          <button id="clear-all" class="clear-btn" type="button">Clear all</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="split-view">
+      <!-- Top half: Kanban board -->
+      <div class="split-pane kanban-pane">
+        <section class="board" aria-label="Kanban board">
+          <section class="column" data-status="todo">
+            <header class="column-header">
+              <h2>Todo</h2>
+              <span class="count" data-count-for="todo">0</span>
+            </header>
+            <div class="card-list" data-list="todo" aria-label="Todo cards"></div>
+          </section>
+
+          <section class="column" data-status="doing">
+            <header class="column-header">
+              <h2>Doing</h2>
+              <span class="count" data-count-for="doing">0</span>
+            </header>
+            <div class="card-list" data-list="doing" aria-label="Doing cards"></div>
+          </section>
+
+          <section class="column" data-status="done">
+            <header class="column-header">
+              <h2>Done</h2>
+              <span class="count" data-count-for="done">0</span>
+            </header>
+            <div class="card-list" data-list="done" aria-label="Done cards"></div>
+          </section>
+        </section>
+      </div>
+
+      <!-- Bottom half: Event View -->
+      <div class="split-pane event-pane">
+        <div class="event-view">
+          <div class="event-tabs-bar">
+            <span class="event-view-label">Event View</span>
+            <div class="event-tabs" role="tablist">
+              <button class="tab-btn active" data-tab="scheduled" role="tab" aria-selected="true">
+                Scheduled <span class="tab-count" id="count-scheduled">0</span>
+              </button>
+              <button class="tab-btn" data-tab="completed" role="tab" aria-selected="false">
+                Completed <span class="tab-count" id="count-completed">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="event-list" id="event-list" role="list"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Task detail modal -->
+  <div class="modal-overlay" id="task-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Task details">
+      <button class="modal-close" id="task-modal-close" aria-label="Close">&#x2715;</button>
+      <div id="task-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Event detail modal -->
+  <div class="modal-overlay" id="event-modal">
+    <div class="modal" role="dialog" aria-modal="true" aria-label="Event details">
+      <button class="modal-close" id="modal-close" aria-label="Close">&#x2715;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
