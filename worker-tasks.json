@@ -285,6 +285,11 @@
           "by": "agent:main",
           "timestamp": "2026-02-28T23:56:00-08:00",
           "text": "Dependency satisfied: TASK-0017 completed with phase-0 plan and timeout-safe split. Unblocked for automated execution."
+        },
+        {
+          "by": "agent:main",
+          "timestamp": "2026-03-01T00:04:00-08:00",
+          "text": "User comms requirement: send Telegram updates on state transitions (started/completed/blocked) for this task."
         }
       ]
     },
@@ -301,15 +306,20 @@
           "by": "agent:main",
           "timestamp": "2026-02-28T23:42:00-08:00",
           "text": "Temporarily blocked to enforce phase gating. Unblock + automate=yes after TASK-0018 completion."
+        },
+        {
+          "by": "agent:main",
+          "timestamp": "2026-03-01T00:04:00-08:00",
+          "text": "User comms requirement: send Telegram updates on state transitions (started/completed/blocked) for this task."
         }
       ]
     },
     {
       "taskId": "TASK-0020",
       "title": "EV portal accelerator cleanup + dashboard hygiene",
-      "detail": "After TASK-0016 is marked done: (1) disable/remove temporary cron EV_Portal_Accelerator, (2) archive completed EV portal phase cards (TASK-0017/0018/0019) by setting automate=no and adding final outcome comments, (3) keep TASK-0016 as single concise roll-up record with links to deliverables.",
-      "status": "todo",
-      "automate": "yes",
+      "detail": "State-machine gated cleanup phase. Start only after TASK-0016 is done: (1) disable/remove temporary cron EV_Portal_Accelerator, (2) archive completed EV portal phase cards (TASK-0017/0018/0019) by setting automate=no and adding final outcome comments, (3) keep TASK-0016 as single concise roll-up record with links to deliverables.",
+      "status": "blocked",
+      "automate": "no",
       "agentId": "agent:main",
       "priority": "medium",
       "comments": [
@@ -317,6 +327,32 @@
           "by": "agent:main",
           "timestamp": "2026-02-28T23:55:00-08:00",
           "text": "Temporary accelerator cron created: EV_Portal_Accelerator (id ad89c4cf-4ccb-43dd-b170-77e9fc6558c0), every 3h, sessionTarget=main, timeoutSeconds=900."
+        },
+        {
+          "by": "agent:main",
+          "timestamp": "2026-03-01T00:04:00-08:00",
+          "text": "User comms requirement: send Telegram updates on state transitions (started/completed/blocked) for EV portal tasks and cleanup milestones."
+        },
+        {
+          "by": "agent:main",
+          "timestamp": "2026-03-01T00:17:00-08:00",
+          "text": "State machine guard applied: keep blocked/non-automated until TASK-0016 is done to prevent premature cleanup execution."
+        }
+      ]
+    },
+    {
+      "taskId": "TASK-0021",
+      "title": "Set up living UI/UX visualization + documentation pipeline",
+      "detail": "Implement a cost-effective collaboration/documentation workflow for mobile + desktop UX without manual click-throughs: Storybook for component/screen states, Playwright for automated journey screenshots/videos/traces, optional Figma free board for early UX collaboration, and CI-hosted docs/report artifacts (GitHub Actions + Vercel/GitHub Pages). Include initial structure, CI automation, and maintenance guide.",
+      "status": "todo",
+      "automate": "yes",
+      "agentId": "agent:main",
+      "priority": "high",
+      "comments": [
+        {
+          "by": "agent:main",
+          "timestamp": "2026-03-01T00:35:00-08:00",
+          "text": "Added from user request: capture best cost-effective UI/UX collaboration approach as executable dashboard task."
         }
       ]
     }
